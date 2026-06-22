@@ -2,6 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
   <uses-permission android:name="android.permission.VIBRATE" />
   <uses-feature android:name="android.hardware.touchscreen" android:required="true" />
-  <application android:theme="@style/UnityThemeSelector" android:label="Haptic" />
+  <application android:theme="@style/UnityThemeSelector" />
 </manifest>
 

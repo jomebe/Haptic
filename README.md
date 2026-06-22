@@ -50,6 +50,8 @@ No paid assets, external services, or runtime network access are used. Visuals a
 
 ## Download the APK
 
+Latest release: [Download Haptic-Android.apk](https://github.com/jomebe/Haptic/releases/latest/download/Haptic-Android.apk)
+
 1. Open the repository's **Actions** tab.
 2. Open the latest successful **Build Android APK** run.
 3. Download the **Haptic-Android** artifact.
