@@ -73,24 +73,6 @@ namespace Haptic.UI
             return button;
         }
 
-        public static void AddVerticalLayout(GameObject target, float spacing, TextAnchor alignment = TextAnchor.UpperCenter)
-        {
-            var layout = target.AddComponent<VerticalLayoutGroup>();
-            layout.spacing = spacing;
-            layout.childAlignment = alignment;
-            layout.childControlHeight = false;
-            layout.childControlWidth = true;
-            layout.childForceExpandHeight = false;
-            layout.childForceExpandWidth = true;
-        }
-
-        public static void PreferredHeight(GameObject target, float height)
-        {
-            var element = target.AddComponent<LayoutElement>();
-            element.preferredHeight = height;
-            element.minHeight = height;
-        }
-
         static Font Font => font ??= Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
     }
 }

@@ -38,7 +38,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Haptic-Android
-          path: Builds/Android/Haptic-Android.apk
+          path: Builds/Android/Haptic_v1.0.5.apk
           if-no-files-found: error
           retention-days: 30
 

@@ -50,7 +50,7 @@ No paid assets, external services, or runtime network access are used. Visuals a
 
 ## Download the APK
 
-Latest release: [Download Haptic-Android.apk](https://github.com/jomebe/Haptic/releases/latest/download/Haptic-Android.apk)
+Latest release: [Download Haptic_v1.0.5.apk](https://github.com/jomebe/Haptic/releases/latest/download/Haptic_v1.0.5.apk)
 
 1. Open the repository's **Actions** tab.
 2. Open the latest successful **Build Android APK** run.
@@ -74,7 +74,7 @@ Open the repository folder in Unity, then select:
 
 Output:
 
-`Builds/Android/Haptic-Android.apk`
+`Builds/Android/Haptic_v1.0.5.apk`
 
 PowerShell batch build:
 
@@ -96,7 +96,7 @@ In **Repository Settings > Secrets and variables > Actions**, add:
 - `UNITY_EMAIL`: Unity account email used for that license
 - `UNITY_PASSWORD`: Unity account password used for that license
 
-The workflow never prints these values. After the secrets are configured, run it manually from the Actions tab. It uploads `Builds/Android/Haptic-Android.apk` as the `Haptic-Android` artifact.
+The workflow never prints these values. After the secrets are configured, run it manually from the Actions tab. It uploads `Builds/Android/Haptic_v1.0.5.apk` as the `Haptic-Android` artifact.
 
 For Unity Personal activation guidance, follow the [GameCI activation documentation](https://game.ci/docs/github/activation/).
 

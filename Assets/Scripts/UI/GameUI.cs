@@ -148,12 +148,11 @@ namespace Haptic.UI
             scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
             scaler.referenceResolution = new Vector2(1080f, 1920f);
             scaler.matchWidthOrHeight = 0.5f;
-            var raycaster = gameObject.AddComponent<GraphicRaycaster>();
-            gameObject.AddComponent<DirectTouchButtonRouter>().Initialize(raycaster);
+            gameObject.AddComponent<GraphicRaycaster>();
 
             if (FindFirstObjectByType<EventSystem>() == null)
             {
-                var eventSystem = new GameObject("Event System", typeof(EventSystem));
+                var eventSystem = new GameObject("Event System", typeof(EventSystem), typeof(StandaloneInputModule));
                 DontDestroyOnLoad(eventSystem);
             }
 
@@ -182,13 +181,11 @@ namespace Haptic.UI
             Text subtitle = UiFactory.Text("Subtitle", mainPanel.transform, "FIND THE SIGNAL", 22, UiFactory.Cyan);
             Place(subtitle.rectTransform, 0.2f, 0.61f, 0.8f, 0.67f);
 
-            RectTransform buttons = UiFactory.Rect("Actions", mainPanel.transform, new Vector2(0.17f, 0.16f), new Vector2(0.83f, 0.55f), Vector2.zero, Vector2.zero);
-            UiFactory.AddVerticalLayout(buttons.gameObject, 18f);
-            AddMenuButton(buttons, "START GAME", app.StartGame, 84f, true);
-            AddMenuButton(buttons, "LEVEL SELECT", app.ShowLevelSelect, 72f);
-            AddMenuButton(buttons, "SETTINGS", app.ShowSettings, 72f);
-            AddMenuButton(buttons, "CREDITS", app.ShowCredits, 72f);
-            AddMenuButton(buttons, "QUIT", app.Quit, 64f);
+            AddMenuButton(mainPanel.transform, "START GAME", app.StartGame, 0.49f, 0.565f, true);
+            AddMenuButton(mainPanel.transform, "LEVEL SELECT", app.ShowLevelSelect, 0.395f, 0.465f);
+            AddMenuButton(mainPanel.transform, "SETTINGS", app.ShowSettings, 0.30f, 0.37f);
+            AddMenuButton(mainPanel.transform, "CREDITS", app.ShowCredits, 0.205f, 0.275f);
+            AddMenuButton(mainPanel.transform, "QUIT", app.Quit, 0.11f, 0.18f);
         }
 
         void BuildLevelSelect()
@@ -442,11 +439,11 @@ namespace Haptic.UI
             Place(title.rectTransform, 0.1f, 0.84f, 0.9f, 0.94f);
         }
 
-        static void AddMenuButton(RectTransform parent, string label, UnityEngine.Events.UnityAction action,
-            float height, bool accent = false)
+        static void AddMenuButton(Transform parent, string label, UnityEngine.Events.UnityAction action,
+            float bottom, float top, bool accent = false)
         {
             Button button = UiFactory.Button(label, parent, label, action, accent ? UiFactory.CyanDim : null);
-            UiFactory.PreferredHeight(button.gameObject, height);
+            Place(button.GetComponent<RectTransform>(), 0.17f, bottom, 0.83f, top);
         }
 
         static void Place(RectTransform rect, float xMin, float yMin, float xMax, float yMax)

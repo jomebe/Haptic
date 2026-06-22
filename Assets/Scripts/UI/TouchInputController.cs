@@ -1,5 +1,6 @@
 using Haptic.Gameplay;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Haptic.UI
 {
@@ -35,8 +36,7 @@ namespace Haptic.UI
                 Touch touch = Input.GetTouch(i);
                 if (touch.phase == TouchPhase.Began && trackedFinger < 0)
                 {
-                    if (DirectTouchButtonRouter.Instance != null &&
-                        DirectTouchButtonRouter.Instance.IsButtonAt(touch.position))
+                    if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject(touch.fingerId))
                         continue;
                     trackedFinger = touch.fingerId;
                     BeginGesture(touch.position);
@@ -57,8 +57,7 @@ namespace Haptic.UI
         void PollMouse()
         {
             if (Input.GetMouseButtonDown(0) &&
-                (DirectTouchButtonRouter.Instance == null ||
-                 !DirectTouchButtonRouter.Instance.IsButtonAt(Input.mousePosition)))
+                (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject()))
                 BeginGesture(Input.mousePosition);
             if (Input.GetMouseButton(0) && trackedFinger == -2)
                 UpdateGesture(Input.mousePosition);

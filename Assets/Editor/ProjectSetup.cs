@@ -13,7 +13,7 @@ namespace Haptic.Editor
     public static class ProjectSetup
     {
         const string ScenePath = "Assets/Scenes/Haptic.unity";
-        const string ApkPath = "Builds/Android/Haptic-Android.apk";
+        const string ApkPath = "Builds/Android/Haptic_v1.0.5.apk";
 
         [MenuItem("Haptic/Configure Project")]
         public static void Configure()
@@ -65,8 +65,8 @@ namespace Haptic.Editor
             PlayerSettings.companyName = "Jomebe";
             PlayerSettings.productName = "Haptic";
             PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.Android, "com.jomebe.haptic");
-            PlayerSettings.bundleVersion = "1.0.4";
-            PlayerSettings.Android.bundleVersionCode = 5;
+            PlayerSettings.bundleVersion = "1.0.5";
+            PlayerSettings.Android.bundleVersionCode = 6;
             PlayerSettings.Android.minSdkVersion = AndroidSdkVersions.AndroidApiLevel26;
             PlayerSettings.Android.targetSdkVersion = AndroidSdkVersions.AndroidApiLevelAuto;
             PlayerSettings.defaultInterfaceOrientation = UIOrientation.Portrait;
