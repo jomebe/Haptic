@@ -255,10 +255,12 @@ namespace Haptic.UI
             mazeVisual = mazeRect.gameObject.AddComponent<MazeVisual>();
 
             Image baseImage = UiFactory.Image("Control Field", gamePanel.transform, new Color(0.05f, 0.27f, 0.32f, 0.42f));
+            baseImage.raycastTarget = false;
             joystickBase = baseImage.rectTransform;
             joystickBase.anchorMin = joystickBase.anchorMax = new Vector2(0.78f, 0.115f);
             joystickBase.sizeDelta = Vector2.one * 170f;
             Image knobImage = UiFactory.Image("Control", joystickBase, new Color(0.16f, 0.93f, 1f, 0.72f));
+            knobImage.raycastTarget = false;
             joystickKnob = knobImage.rectTransform;
             joystickKnob.anchorMin = joystickKnob.anchorMax = Vector2.one * 0.5f;
             joystickKnob.sizeDelta = Vector2.one * 62f;
@@ -270,7 +272,9 @@ namespace Haptic.UI
             Button pauseButton = UiFactory.Button("Pause", gamePanel.transform, "II", app.Pause);
             Place(pauseButton.GetComponent<RectTransform>(), 0.82f, 0.89f, 0.94f, 0.96f);
 
-            tutorialCue = UiFactory.Image("Tutorial Cue", gamePanel.transform, new Color(0.02f, 0.08f, 0.11f, 0.95f)).gameObject;
+            Image cueImage = UiFactory.Image("Tutorial Cue", gamePanel.transform, new Color(0.02f, 0.08f, 0.11f, 0.95f));
+            cueImage.raycastTarget = false;
+            tutorialCue = cueImage.gameObject;
             Place((RectTransform)tutorialCue.transform, 0.24f, 0.42f, 0.76f, 0.59f);
             tutorialCue.AddComponent<CanvasGroup>();
             tutorialCue.SetActive(false);

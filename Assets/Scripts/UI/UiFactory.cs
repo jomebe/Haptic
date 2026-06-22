@@ -48,6 +48,7 @@ namespace Haptic.UI
             text.resizeTextForBestFit = true;
             text.resizeTextMinSize = 10;
             text.resizeTextMaxSize = size;
+            text.raycastTarget = false;
             return text;
         }
 
