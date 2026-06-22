@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+  <defs>
+    <radialGradient id="bg"><stop stop-color="#0b2630"/><stop offset="1" stop-color="#02070f"/></radialGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="12" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1080" height="1920" fill="url(#bg)"/>
+  <g fill="none" stroke="#32efff" filter="url(#glow)" opacity=".7">
+    <circle cx="540" cy="875" r="130" stroke-width="5"/><circle cx="540" cy="875" r="245" stroke-width="3" opacity=".5"/>
+    <circle cx="540" cy="875" r="370" stroke-width="2" opacity=".28"/>
+  </g>
+  <circle cx="540" cy="875" r="25" fill="#32efff" filter="url(#glow)"/>
+  <text x="540" y="420" fill="#e8fbff" font-family="Arial,sans-serif" font-size="84" font-weight="700" text-anchor="middle" letter-spacing="20">HAPTIC</text>
+  <text x="540" y="488" fill="#32efff" font-family="Arial,sans-serif" font-size="24" text-anchor="middle" letter-spacing="8">FIND THE SIGNAL</text>
+  <text x="540" y="1510" fill="#a8c8cf" font-family="Arial,sans-serif" font-size="28" text-anchor="middle" letter-spacing="5">THE MAZE IS FELT, NOT SEEN</text>
+</svg>
