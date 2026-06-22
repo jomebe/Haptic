@@ -96,7 +96,7 @@ In **Repository Settings > Secrets and variables > Actions**, add:
 - `UNITY_EMAIL`: Unity account email used for that license
 - `UNITY_PASSWORD`: Unity account password used for that license
 
-The workflow never prints these values. It builds on pushes to `main` and manual dispatch, then uploads `Builds/Android/Haptic-Android.apk` as the `Haptic-Android` artifact.
+The workflow never prints these values. After the secrets are configured, run it manually from the Actions tab. It uploads `Builds/Android/Haptic-Android.apk` as the `Haptic-Android` artifact.
 
 For Unity Personal activation guidance, follow the [GameCI activation documentation](https://game.ci/docs/github/activation/).
 
