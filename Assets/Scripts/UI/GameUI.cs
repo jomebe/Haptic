@@ -242,7 +242,7 @@ namespace Haptic.UI
         {
             gamePanel = CreateScreen("Gameplay");
             Image touchLayer = UiFactory.Image("Swipe Surface", gamePanel.transform, Color.clear);
-            touchLayer.raycastTarget = true;
+            touchLayer.raycastTarget = false;
 
             levelTitle = UiFactory.Text("Level", gamePanel.transform, string.Empty, 25, UiFactory.White, TextAnchor.MiddleLeft);
             Place(levelTitle.rectTransform, 0.06f, 0.89f, 0.72f, 0.96f);

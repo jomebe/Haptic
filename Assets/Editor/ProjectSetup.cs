@@ -64,8 +64,8 @@ namespace Haptic.Editor
             PlayerSettings.companyName = "Jomebe";
             PlayerSettings.productName = "Haptic";
             PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.Android, "com.jomebe.haptic");
-            PlayerSettings.bundleVersion = "1.0.2";
-            PlayerSettings.Android.bundleVersionCode = 3;
+            PlayerSettings.bundleVersion = "1.0.3";
+            PlayerSettings.Android.bundleVersionCode = 4;
             PlayerSettings.Android.minSdkVersion = AndroidSdkVersions.AndroidApiLevel26;
             PlayerSettings.Android.targetSdkVersion = AndroidSdkVersions.AndroidApiLevelAuto;
             PlayerSettings.defaultInterfaceOrientation = UIOrientation.Portrait;
