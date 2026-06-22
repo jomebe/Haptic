@@ -22,7 +22,12 @@ namespace Haptic.Tests.PlayMode
             Assert.AreEqual(ScreenState.MainMenu, app.State);
             Assert.IsNotNull(Object.FindFirstObjectByType<Canvas>());
 
-            app.StartLevel(0);
+            DirectTouchButtonRouter router = Object.FindFirstObjectByType<DirectTouchButtonRouter>();
+            Assert.IsNotNull(router);
+            UnityEngine.UI.Button startButton = GameObject.Find("START GAME").GetComponent<UnityEngine.UI.Button>();
+            RectTransform startRect = startButton.GetComponent<RectTransform>();
+            Vector2 startScreenPoint = RectTransformUtility.WorldToScreenPoint(null, startRect.TransformPoint(startRect.rect.center));
+            router.TapAt(startScreenPoint);
             yield return null;
             Assert.AreEqual(ScreenState.Playing, app.State);
             Assert.IsNotNull(app.Gameplay);

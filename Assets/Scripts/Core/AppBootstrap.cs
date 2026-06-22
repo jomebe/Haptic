@@ -23,6 +23,7 @@ namespace Haptic.Core
         {
             Application.targetFrameRate = 60;
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
+            Input.simulateMouseWithTouches = false;
             saves = new SaveSystem(LevelCatalog.Levels.Count);
 
             haptics = new GameObject("Haptic Manager").AddComponent<HapticManager>();

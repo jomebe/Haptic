@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Reflection;
 using Haptic.Core;
 using UnityEditor;
 using UnityEditor.Build.Reporting;
@@ -64,8 +65,8 @@ namespace Haptic.Editor
             PlayerSettings.companyName = "Jomebe";
             PlayerSettings.productName = "Haptic";
             PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.Android, "com.jomebe.haptic");
-            PlayerSettings.bundleVersion = "1.0.3";
-            PlayerSettings.Android.bundleVersionCode = 4;
+            PlayerSettings.bundleVersion = "1.0.4";
+            PlayerSettings.Android.bundleVersionCode = 5;
             PlayerSettings.Android.minSdkVersion = AndroidSdkVersions.AndroidApiLevel26;
             PlayerSettings.Android.targetSdkVersion = AndroidSdkVersions.AndroidApiLevelAuto;
             PlayerSettings.defaultInterfaceOrientation = UIOrientation.Portrait;
@@ -75,6 +76,16 @@ namespace Haptic.Editor
             PlayerSettings.allowedAutorotateToPortraitUpsideDown = false;
             PlayerSettings.colorSpace = ColorSpace.Linear;
             PlayerSettings.SetApiCompatibilityLevel(BuildTargetGroup.Android, ApiCompatibilityLevel.NET_Standard);
+            ForceClassicAndroidActivity();
+        }
+
+        static void ForceClassicAndroidActivity()
+        {
+            Type androidSettings = typeof(PlayerSettings).GetNestedType("Android", BindingFlags.Public | BindingFlags.NonPublic);
+            PropertyInfo property = androidSettings?.GetProperty("applicationEntry", BindingFlags.Public | BindingFlags.Static);
+            if (property == null || !property.PropertyType.IsEnum)
+                throw new MissingMemberException("Unity Android applicationEntry setting is unavailable.");
+            property.SetValue(null, Enum.Parse(property.PropertyType, "Activity"));
         }
     }
 }

@@ -148,11 +148,12 @@ namespace Haptic.UI
             scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
             scaler.referenceResolution = new Vector2(1080f, 1920f);
             scaler.matchWidthOrHeight = 0.5f;
-            gameObject.AddComponent<GraphicRaycaster>();
+            var raycaster = gameObject.AddComponent<GraphicRaycaster>();
+            gameObject.AddComponent<DirectTouchButtonRouter>().Initialize(raycaster);
 
             if (FindFirstObjectByType<EventSystem>() == null)
             {
-                var eventSystem = new GameObject("Event System", typeof(EventSystem), typeof(StandaloneInputModule));
+                var eventSystem = new GameObject("Event System", typeof(EventSystem));
                 DontDestroyOnLoad(eventSystem);
             }
 
